@@ -1,10 +1,10 @@
 <?php
-class products
+class Products
 {
     protected $name;
     protected $price;
     protected $amount;
-    protected $availability = true;
+    protected $is_availability = true;
     protected $category;
 
 
@@ -33,9 +33,9 @@ class products
     public function setAvailability()
     {
         if ($this->amount > 0) {
-            $this->availability = true;
+            $this->is_availability = true;
         } else {
-            $this->availability = false;
+            $this->is_availability = false;
         }
     }
     public function setCategory($_category)
