@@ -4,13 +4,15 @@ class Order
     protected $user;
     protected $is_registered;
     protected $order_N;
+    protected $products = [];
     protected $discount;
 
 
-    public function __construct($_user, $_is_registered, $_order_N)
+    public function __construct($_user, $_is_registered, $_order_N, $_products)
     {
         $this->setUser($_user);
         $this->setOrderN($_order_N);
+        $this->setProducts($_products);
         // valore passato da noi
         $this->setIsRegistered($_is_registered);
     }
@@ -32,6 +34,11 @@ class Order
     {
         $this->is_registered = $_is_registered;
     }
+    public function setProducts($_products)
+    {
+        $this->products = $_products;
+    }
+
 
     //GETTER FUNCTION
     public function getIsRegistered()
