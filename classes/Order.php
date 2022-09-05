@@ -58,9 +58,11 @@ class Order
     //FUNZIONE PER IL TOTAL PRICE
     public function getTotalPrice()
     {
+        $totalPrice = [];
         $products = $this->products;
         foreach ($products as $product) {
-            echo $product;
+            $totalPrice[] = $product->getPrice();
         }
+        var_dump(array_sum($totalPrice));
     }
 }
