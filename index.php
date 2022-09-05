@@ -16,8 +16,9 @@ $user = new User('andrea', 'boldrin', 'via san', 'aaaaaa556443', 2020);
 var_dump($user);
 
 //prova order
-$order = new Order($user, false, 2001, []);
+$order = new Order($user, true, 2001, []);
 $order->addProduct($prodotto1);
+$order->addProduct($prodotto2);
 var_dump($order);
 
 $order->getTotalPrice();
