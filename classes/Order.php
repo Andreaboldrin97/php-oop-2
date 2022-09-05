@@ -26,13 +26,19 @@ class Order
     {
         $this->order_N = $_order_N;
     }
-    public function setDiscount($_discount)
-    {
-        $this->discount = $_discount;
-    }
+
     public function setIsRegistered($_is_registered)
     {
         $this->is_registered = $_is_registered;
+        $this->setDiscount();
+    }
+    public function setDiscount()
+    {
+        if ($this->is_registered == true) {
+            $this->discount = 20;
+        } else {
+            $this->discount = 0;
+        }
     }
     public function setProducts($_products)
     {
@@ -44,5 +50,17 @@ class Order
     public function getIsRegistered()
     {
         return $this->is_registered;
+    }
+
+
+
+
+    //FUNZIONE PER IL TOTAL PRICE
+    public function getTotalPrice()
+    {
+        $products = $this->products;
+        foreach ($products as $product) {
+            echo $product;
+        }
     }
 }
