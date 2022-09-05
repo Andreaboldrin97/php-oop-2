@@ -52,6 +52,12 @@ class Order
         return $this->is_registered;
     }
 
+    //FUNZIONE PER AGGIUNGER I PRODOTTI
+    public function addProduct(...$_products)
+    {
+        $this->products = array_merge($this->products, $_products);
+    }
+
 
 
 
