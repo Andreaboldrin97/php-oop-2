@@ -37,7 +37,7 @@ class Order
         if ($this->is_registered == true) {
             $this->discount = 20;
         } else {
-            $this->discount = 0;
+            $this->discount = null;
         }
     }
     public function setProducts($_products)
@@ -51,6 +51,13 @@ class Order
     {
         return $this->is_registered;
     }
+    public function getDiscount()
+    {
+        return $this->discount;
+    }
+
+
+
 
     //FUNZIONE PER AGGIUNGER I PRODOTTI
     public function addProduct(...$_products)
@@ -58,17 +65,26 @@ class Order
         $this->products = array_merge($this->products, $_products);
     }
 
-
-
-
     //FUNZIONE PER IL TOTAL PRICE
     public function getTotalPrice()
     {
         $totalPrice = [];
         $products = $this->products;
+        $discount = $this->getDiscount();
+        $discountPrice = 0;
+        $price = '';
+
+
         foreach ($products as $product) {
             $totalPrice[] = $product->getPrice();
         }
+
+        $discountPrice = array_sum($totalPrice) * $discount / 100;
+        $price = array_sum($totalPrice) - $discountPrice;
+
         var_dump(array_sum($totalPrice));
+        echo 'lo sconto è di ' . $discountPrice;
+        echo '<br>';
+        echo 'prezzo finale : ' . $price;
     }
 }
