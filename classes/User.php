@@ -3,18 +3,15 @@ class User
 {
     protected $name;
     protected $surName;
-    protected $is_registered;
     protected $address;
     protected $userCard;
     protected $userCardDate;
     protected $is_valid_card;
 
-    public function __construct($_name, $_surName, $_is_registered, $_address, $_userCard, $_userCardDate)
+    public function __construct($_name, $_surName, $_address, $_userCard, $_userCardDate)
     {
         $this->setName($_name);
         $this->setSurName($_surName);
-        // valore passato da noi
-        $this->setIsRegistered($_is_registered);
         $this->setAddress($_address);
         $this->setUserCard($_userCard);
         $this->setUserCardDate($_userCardDate);
@@ -28,10 +25,6 @@ class User
     public function setSurName($_surName)
     {
         $this->surName = $_surName;
-    }
-    public function setIsRegistered($_is_registered)
-    {
-        $this->is_registered = $_is_registered;
     }
     public function setAddress($_address)
     {
@@ -65,10 +58,6 @@ class User
     public function getSurName()
     {
         return $this->surName;
-    }
-    public function getIsRegistered()
-    {
-        return $this->is_registered;
     }
     public function getAddress()
     {

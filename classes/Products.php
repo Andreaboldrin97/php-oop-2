@@ -5,13 +5,15 @@ class Products
     protected $price;
     protected $amount;
     protected $is_availability = true;
+    protected $category;
 
 
-    public function __construct($_name, $_price, $_amount)
+    public function __construct($_name, $_price, $_amount, $_category)
     {
         $this->setName($_name);
         $this->setPrice($_price);
         $this->setAmount($_amount);
+        $this->setCategory($_category);
     }
 
     // setter function
@@ -36,7 +38,10 @@ class Products
             $this->is_availability = false;
         }
     }
-
+    public function setCategory($_category)
+    {
+        $this->category = $_category;
+    }
 
 
     // getter function
@@ -55,5 +60,9 @@ class Products
     public function getAvailability()
     {
         return $this->availability;
+    }
+    public function getCategory()
+    {
+        return $this->category;
     }
 }
